@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Microing</string>
+    <string name="Enter">Ingresar</string>
+    <string name="Go">Registrar</string>
+    <string name="Asistencia_Titulo">Registro de Asistencia</string>
+    <string name="Ingreso_Title">Registro de Colaboradores Nuevos</string>
+    <string name="inhabilitar_Titulo">Inhabilitar Colaboradores</string>
+    <string name="Vales_Titulo">Registro de Vales de Casino</string>
+</resources>
