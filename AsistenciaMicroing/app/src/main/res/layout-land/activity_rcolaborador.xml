@@ -6,96 +6,93 @@
     android:layout_height="match_parent"
     tools:context=".RColaborador_Activity">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        app:layout_constraintVertical_bias="1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051"
-        app:srcCompat="@drawable/microing" />
+        app:layout_constraintBottom_toBottomOf="parent">
+       // tools:layout_editor_absoluteX="-16dp">
 
-    <TextView
-        android:id="@+id/tvTituloNuevos"
-        android:layout_width="553dp"
-        android:layout_height="43dp"
-        android:text="@string/Ingreso_Title"
-        android:textAlignment="center"
-        android:textColor="#010912"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.05" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etNombreNuevoCol"
-        android:layout_width="312dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Nombre del Colaborador"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTituloNuevos" />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/microing" />
 
-    <EditText
-        android:id="@+id/etNumIde"
-        android:layout_width="312dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Número de Identificación"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNombreNuevoCol" />
+            <TextView
+                android:id="@+id/tvTituloNuevos"
+                android:layout_width="553dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/Ingreso_Title"
+                android:textAlignment="center"
+                android:textColor="#010912"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
-    <Spinner
-        android:id="@+id/snCargo"
-        android:layout_width="312dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNumIde" />
+            <EditText
+                android:id="@+id/etNombreNuevoCol"
+                android:layout_width="312dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:ems="10"
+                android:hint="Nombre del Colaborador"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Go"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.951"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.931" />
+            <EditText
+                android:id="@+id/etNumIde"
+                android:layout_width="312dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="Número de Identificación"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/etFechaIngreso"
-        android:layout_width="312dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Fecha de Ingreso"
-        android:inputType="date"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/snCargo" />
+            <Spinner
+                android:id="@+id/snCargo"
+                android:layout_width="312dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp" />
+
+            <EditText
+                android:id="@+id/etFechaIngreso"
+                android:layout_width="312dp"
+                android:layout_height="47dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="Fecha de Ingreso"
+                android:inputType="date"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:text="@string/Go" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

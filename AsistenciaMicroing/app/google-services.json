@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "912363358785",
+    "project_id": "microing-c2f88",
+    "storage_bucket": "microing-c2f88.appspot.com"
+
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912363358785:android:4d6bab562858029038d4c0",
+        "android_client_info": {
+          "package_name": "com.kmac.asistenciamicroing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912363358785-9qd3nhodo34qgu5ap4eo88d4rml8m3ai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmpd5VjrrW58dqZmUZcohN5muQLglyd8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912363358785-9qd3nhodo34qgu5ap4eo88d4rml8m3ai.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

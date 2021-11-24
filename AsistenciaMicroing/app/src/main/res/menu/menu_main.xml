@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Ingresar"
+        android:title="@string/Ingresar_menu" />
+    <item
+        android:id="@+id/Retirar"
+        android:title="@string/retirar_menu" />
+    <item
+        android:id="@+id/Asistencia"
+        android:title="@string/asistencia_menu" />
+    <item
+        android:id="@+id/Vales"
+        android:title="@string/vales_menu" />
+    <item
+        android:id="@+id/logout"
+        android:title="@string/cerrar_sesion_menu" />
+</menu>

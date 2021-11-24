@@ -7,4 +7,12 @@
     <string name="inhabilitar_Titulo">Inhabilitar Colaboradores</string>
     <string name="Vales_Titulo">Registro de Vales de Casino</string>
     <string name="Campos_Vacios">¡Hay campos vacios!</string>
+    <string name="Registro_Exitoso">Registro Exitoso</string>
+    <string name="Ingresar_menu">Ingresar</string>
+    <string name="retirar_menu">Retirar</string>
+    <string name="asistencia_menu">Asistencia</string>
+    <string name="vales_menu">Vales</string>
+    <string name="cerrar_sesion_menu">Cerrar sesión</string>
+    <string name="Select">Seleccione una opción</string>
+    <string name="OK">Registro guardado</string>
 </resources>
