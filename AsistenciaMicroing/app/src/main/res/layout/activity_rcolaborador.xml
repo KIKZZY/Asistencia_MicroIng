@@ -36,7 +36,7 @@
     <EditText
         android:id="@+id/etNombreNuevoCol"
         android:layout_width="312dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Nombre del Colaborador"
@@ -51,7 +51,7 @@
     <EditText
         android:id="@+id/etNumIde"
         android:layout_width="312dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Número de Identificación"
@@ -87,7 +87,7 @@
     <EditText
         android:id="@+id/etFechaIngreso"
         android:layout_width="312dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Fecha de Ingreso"

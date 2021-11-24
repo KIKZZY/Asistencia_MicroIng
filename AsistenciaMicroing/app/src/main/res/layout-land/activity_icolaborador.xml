@@ -24,31 +24,28 @@
 
             <TextView
                 android:id="@+id/tvTituloInhabilitar"
-                android:layout_width="496dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="276dp"
+                android:layout_height="90dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="28dp"
                 android:text="@string/inhabilitar_Titulo"
                 android:textAlignment="center"
                 android:textColor="#010912"
                 android:textSize="34sp" />
 
-            <EditText
-                android:id="@+id/etNombreInh"
+            <Spinner
+                android:id="@+id/spinner"
                 android:layout_width="312dp"
                 android:layout_height="47dp"
-                android:layout_marginTop="12dp"
-                android:ems="10"
                 android:layout_gravity="center_horizontal"
-                android:hint="Nombre del Colaborador"
-                android:inputType="textPersonName"
-                android:textSize="24sp" />
+                android:layout_marginTop="8dp"
+                android:prompt="@string/Select" />
 
             <EditText
                 android:id="@+id/etFechaRetiro"
                 android:layout_width="312dp"
-                android:layout_height="47dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
                 android:ems="10"
                 android:layout_gravity="center_horizontal"
                 android:hint="Fecha de Retiro"
@@ -58,21 +55,22 @@
 
             <CheckBox
                 android:id="@+id/cbInhabilitar"
-                android:layout_width="523dp"
-                android:layout_height="43dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="316dp"
+                android:layout_height="69dp"
+                android:layout_marginTop="8dp"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="textStart"
                 android:textSize="18sp"
                 tools:text="Confirmo el retiro del colaborador a partir de la fecha" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnInhabilitar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="32dp"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/Go" />
+
         </LinearLayout>
     </ScrollView>
 

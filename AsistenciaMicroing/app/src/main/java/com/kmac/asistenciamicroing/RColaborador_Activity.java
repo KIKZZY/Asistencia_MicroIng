@@ -133,7 +133,7 @@ public class RColaborador_Activity extends AppCompatActivity {
             map.put( "Cargo", cargocol);
             map.put( "FechaIgreso", fechaIng);
 
-            firebaseDatabase.collection("Colaboradores").documents();
+          //  firebaseDatabase.collection("Colaboradores").documents();
 
             limpiar();
 

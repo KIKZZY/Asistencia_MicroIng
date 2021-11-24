@@ -8,35 +8,29 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="330dp"
-        app:layout_constraintVertical_bias="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-       // tools:layout_editor_absoluteX="-16dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
                 app:srcCompat="@drawable/microing" />
 
             <TextView
                 android:id="@+id/tvTituloNuevos"
-                android:layout_width="553dp"
-                android:layout_height="43dp"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center_horizontal"
+                android:layout_width="350dp"
+                android:layout_height="87dp"
                 android:text="@string/Ingreso_Title"
                 android:textAlignment="center"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
                 android:textColor="#010912"
                 android:textSize="34sp"
                 android:textStyle="bold" />
@@ -45,9 +39,9 @@
                 android:id="@+id/etNombreNuevoCol"
                 android:layout_width="312dp"
                 android:layout_height="48dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:ems="10"
+                android:layout_gravity="center_horizontal"
                 android:hint="Nombre del Colaborador"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
@@ -57,9 +51,9 @@
                 android:id="@+id/etNumIde"
                 android:layout_width="312dp"
                 android:layout_height="48dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
                 android:ems="10"
+                android:layout_gravity="center_horizontal"
                 android:hint="Número de Identificación"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
@@ -68,30 +62,30 @@
             <Spinner
                 android:id="@+id/snCargo"
                 android:layout_width="312dp"
-                android:layout_height="48dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="8dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp" />
+                android:prompt="@string/Select" />
 
             <EditText
                 android:id="@+id/etFechaIngreso"
                 android:layout_width="312dp"
-                android:layout_height="47dp"
-                android:layout_gravity="center_horizontal"
+                android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
+                android:layout_gravity="center_horizontal"
                 android:hint="Fecha de Ingreso"
                 android:inputType="date"
                 android:textAlignment="center"
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/Registrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
                 android:text="@string/Go" />
-
         </LinearLayout>
     </ScrollView>
 
