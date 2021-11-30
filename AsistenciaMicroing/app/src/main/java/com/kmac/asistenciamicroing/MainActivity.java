@@ -1,17 +1,60 @@
 package com.kmac.asistenciamicroing;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.core.Tag;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.Source;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
+
+    EditText horaIng;
+    EditText horaSal;
+    Spinner nombres;
+    EditText fechaAsist;
+    Button btnRegistrar;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    DatabaseReference databaseReference;
+    String Nombresel="";
 
 
     @Override
@@ -19,8 +62,127 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         String name = getIntent().getStringExtra("user");
-
         Toast.makeText(this, "Bienvenido " +name, Toast.LENGTH_LONG).show();
+
+        inicializarfirebase();
+
+        horaIng = findViewById(R.id.etHoraIngreso);
+        horaSal = findViewById(R.id.etHoraSalida);
+        nombres = findViewById(R.id.Colaborador_Asist);
+        obtenerNombres();
+        fechaAsist = findViewById(R.id.etFechaAsist);
+        btnRegistrar =findViewById(R.id.btnRegistrar);
+
+
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                registrar();
+            }
+        });
+
+
+    }
+
+    private void inicializarfirebase() {
+        FirebaseApp.initializeApp(this);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+    }
+
+
+    private void obtenerNombres() {
+        final List<Colaborador> nombresCol = new ArrayList<>();
+        CollectionReference nombresRef = db.collection("Colaboradores");
+        Query query = nombresRef.whereEqualTo("Estado", "1");
+        db.collection("Colaboradores").whereEqualTo("Estado", "1")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                String id = document.getId().toString();
+                                String nombre = document.getString("Nombre");
+                                nombresCol.add(new Colaborador(id, nombre));
+                            }
+
+                            ArrayAdapter<Colaborador> arrayAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_dropdown_item_1line, nombresCol);
+                            nombres.setAdapter(arrayAdapter);
+
+                            nombres.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                Nombresel = parent.getItemAtPosition(position).toString();
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+
+                    }
+                        else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+
+
+                });
+    }
+
+    private void registrar() {
+        String horaIngreso = horaIng.getText().toString();
+        String horaSalida = horaSal.getText().toString();
+        String nombreCol = Nombresel;
+        String fechaAs = fechaAsist.getText().toString();
+        Resources res = getResources();
+
+        if (!nombreCol.equals("")&& !fechaAs.equals("")&& !horaIngreso.equals("")&& !horaSalida.equals("")) {
+           //
+            Map<String, Object> map = new HashMap<>();
+            map.put( "Nombre", nombreCol);
+            map.put( "FechaAsistencia", fechaAs);
+            map.put( "HoraIngreso", horaIngreso);
+            map.put( "HoraSalida", horaSalida);
+
+            db.collection("Asistencia")
+                    .add(map)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error adding document", e);
+                        }
+                    });
+            //Resources res = getResources();
+            Toast.makeText(this, res.getString(R.string.Registro_Exitoso), Toast.LENGTH_LONG).show();
+
+            limpiar();
+
+            //startActivity(intentMain);
+        }else{
+            //Resources res = getResources();
+            Toast.makeText(this, res.getString(R.string.Campos_Vacios), Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
+    private void limpiar() {
+        horaSal.setText("");
+        horaIng.setText("");
+        nombres.setPrompt("@string/Select");
+        fechaAsist.setText("");
+
     }
 
 

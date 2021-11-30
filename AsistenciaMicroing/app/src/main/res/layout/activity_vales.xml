@@ -48,7 +48,7 @@
     <EditText
         android:id="@+id/etCantidad"
         android:layout_width="312dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Cantidad"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etFechaVale" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/RegistrarVale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -76,7 +76,7 @@
     <EditText
         android:id="@+id/etFechaVale"
         android:layout_width="312dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Fecha del Vale"

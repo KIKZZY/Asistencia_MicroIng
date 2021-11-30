@@ -1,5 +1,7 @@
 package com.kmac.asistenciamicroing;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +9,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.icu.text.StringSearch;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,12 +20,16 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DateFormat;
 import java.time.format.DateTimeFormatter;
@@ -43,6 +50,7 @@ public class RColaborador_Activity extends AppCompatActivity {
     Button btnRegistrar;
 
     FirebaseDatabase firebaseDatabase;
+   FirebaseFirestore db = FirebaseFirestore.getInstance();
     DatabaseReference databaseReference;
 
     String Cargosel="";
@@ -76,6 +84,7 @@ public class RColaborador_Activity extends AppCompatActivity {
 
     private void inicializarfirebase() {
         FirebaseApp.initializeApp(this);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
 
@@ -99,6 +108,7 @@ public class RColaborador_Activity extends AppCompatActivity {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                             Cargosel = parent.getItemAtPosition(position).toString();
+
                         }
 
                         @Override
@@ -118,12 +128,11 @@ public class RColaborador_Activity extends AppCompatActivity {
     }
 
     public void  registrar(){
-
-
         String namecol = nombre.getText().toString();
         String identificacion = idNumber.getText().toString();
         String cargocol = Cargosel;
-        DateFormat fechaIng = android.text.format.DateFormat.getMediumDateFormat(fecha.getContext()) ;
+        String fechaIng = fecha.getText().toString();
+        Resources res = getResources();
 
 
         if (!namecol.equals("")&& !cargocol.equals("")&& !identificacion.equals("")&& !fechaIng.equals("")) {
@@ -132,26 +141,34 @@ public class RColaborador_Activity extends AppCompatActivity {
             map.put( "Identificacion", identificacion);
             map.put( "Cargo", cargocol);
             map.put( "FechaIgreso", fechaIng);
+            map.put( "Estado", "1");
 
-          //  firebaseDatabase.collection("Colaboradores").documents();
-
+            db.collection("Colaboradores")
+            .add(map)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error adding document", e);
+                        }
+                    });
+            Toast.makeText(this, res.getString(R.string.Registro_Exitoso), Toast.LENGTH_LONG).show();
             limpiar();
 
             //startActivity(intentMain);
         }else{
-            Resources res = getResources();
+            //Resources res = getResources();
             Toast.makeText(this, res.getString(R.string.Campos_Vacios), Toast.LENGTH_LONG).show();
         }
 
 
     }
 
-
-  /*  private void registrarColaborador(nombre idNumber, cargo, fecha) {
-        Toast.makeText(this, res.getString(R.string.OK), Toast.LENGTH_LONG).show();
-        limpiar();
-
-    }*/
 
     private void limpiar() {
         nombre.setText("");

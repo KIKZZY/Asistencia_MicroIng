@@ -5,7 +5,7 @@ import java.util.Date;
 public class Colaborador {
 
     private  String uid;
-    private Integer identificacion;
+    private String identificacion;
     private String nombre;
     private String cargo;
     private Date fechaIng;
@@ -20,6 +20,12 @@ public class Colaborador {
 
     public Colaborador() {
     }
+
+    public Colaborador(String id, String nombreColaborador) {
+        this.identificacion = id;
+        this.nombre= nombreColaborador;
+    }
+
     public String getUid() {
         return uid;
     }
@@ -28,11 +34,11 @@ public class Colaborador {
         this.uid = uid;
     }
 
-    public Integer getIdentificacion() {
+    public String getIdentificacion() {
         return identificacion;
     }
 
-    public void setIdentificacion(Integer identificacion) {
+    public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
 
@@ -94,10 +100,10 @@ public class Colaborador {
 
     @Override
     public String toString() {
-        return "Colaborador{" +
-                "nombre='" + nombre + '\'' +
-               // ", fechaRet=" + fechaRet +
-                '}';
+        return nombre;
     }
+
+
+
 
 }
