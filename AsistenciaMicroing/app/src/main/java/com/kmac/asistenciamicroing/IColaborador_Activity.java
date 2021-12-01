@@ -140,10 +140,10 @@ public class IColaborador_Activity extends AppCompatActivity {
 
 // Later...
             nombreRef.set(data);*/
-            DocumentReference InCol = db.collection("Colaboradores").document(Uuid);
+            DocumentReference InCol = db.collection("Colaboradores").document(nombreCol);
 
             InCol
-                    .update("Estado", "0", "FechaRetiro", fechaRetiro)
+                    .update("Estado", "0")
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

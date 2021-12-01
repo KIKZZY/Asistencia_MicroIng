@@ -15,4 +15,5 @@
     <string name="cerrar_sesion_menu">Cerrar sesión</string>
     <string name="Select">Seleccione una opción</string>
     <string name="OK">Registro guardado</string>
+    <string name="Datos_Errados">Datos Errados, intente nuevamente</string>
 </resources>

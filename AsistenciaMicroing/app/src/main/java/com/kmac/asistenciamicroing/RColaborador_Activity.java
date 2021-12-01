@@ -116,7 +116,6 @@ public class RColaborador_Activity extends AppCompatActivity {
 
                         }
                     });
-
                 }
             }
 
