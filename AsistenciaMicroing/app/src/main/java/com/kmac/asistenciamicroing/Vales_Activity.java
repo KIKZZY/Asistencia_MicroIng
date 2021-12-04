@@ -207,6 +207,10 @@ public class Vales_Activity extends AppCompatActivity {
                 Intent intentretirar= new Intent(this, IColaborador_Activity.class);
                 startActivity(intentretirar);
                 break;
+            case (R.id.Habilitar):
+                Intent intenthabilitar= new Intent(this, HColaborador_Activity.class);
+                startActivity(intenthabilitar);
+                break;
             case (R.id.Asistencia):
                 Intent intentasistencia= new Intent(this, MainActivity.class);
                 startActivity(intentasistencia);

@@ -9,6 +9,9 @@
         android:id="@+id/Retirar"
         android:title="@string/retirar_menu" />
     <item
+        android:id="@+id/Habilitar"
+        android:title="@string/habilitar_Menu" />
+    <item
         android:id="@+id/Asistencia"
         android:title="@string/asistencia_menu" />
     <item

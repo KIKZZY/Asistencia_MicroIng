@@ -50,7 +50,7 @@ public class IColaborador_Activity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     DatabaseReference databaseReference;
     String Nombresel="";
-    long UidSel;
+    String UidSel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +104,8 @@ public class IColaborador_Activity extends AppCompatActivity {
                                 @Override
                                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                     Nombresel = parent.getItemAtPosition(position).toString();
-                                    UidSel= parent.getItemIdAtPosition(position);
+                                    UidSel= nombresCol.get(position).getIdentificacion();
+
                                 }
 
                                 @Override
@@ -129,7 +130,7 @@ public class IColaborador_Activity extends AppCompatActivity {
         String fechaRetiro = fechaInh.getText().toString();
         String confirmacion = confirm.getText().toString();
         Resources res = getResources();
-        String Uuid = Long.toString(UidSel);
+       // String Uuid = Long.toString(UidSel);
 
 
         if (!nombreCol.equals("")&& !fechaRetiro.equals("")&& !confirmacion.equals(true)) {
@@ -140,10 +141,10 @@ public class IColaborador_Activity extends AppCompatActivity {
 
 // Later...
             nombreRef.set(data);*/
-            DocumentReference InCol = db.collection("Colaboradores").document(nombreCol);
+            DocumentReference InCol = db.collection("Colaboradores").document(UidSel);
 
             InCol
-                    .update("Estado", "0")
+                    .update("Estado", "0", "fechaRetiro", fechaRetiro)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -196,6 +197,10 @@ public class IColaborador_Activity extends AppCompatActivity {
             case (R.id.Retirar):
                 Intent intentretirar= new Intent(this, IColaborador_Activity.class);
                 startActivity(intentretirar);
+                break;
+            case (R.id.Habilitar):
+                Intent intenthabilitar= new Intent(this, HColaborador_Activity.class);
+                startActivity(intenthabilitar);
                 break;
             case (R.id.Asistencia):
                 Intent intentasistencia= new Intent(this, MainActivity.class);
