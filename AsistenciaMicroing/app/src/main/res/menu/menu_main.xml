@@ -18,6 +18,9 @@
         android:id="@+id/Vales"
         android:title="@string/vales_menu" />
     <item
+        android:id="@+id/ListadoC"
+        android:title="@string/Consultar_Col" />
+    <item
         android:id="@+id/logout"
         android:title="@string/cerrar_sesion_menu" />
 </menu>

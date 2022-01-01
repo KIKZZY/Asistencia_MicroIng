@@ -16,13 +16,15 @@ public class Colaborador {
 
 
 
-
-
-    public Colaborador() {
+    public Colaborador(String id, String nombreColaborador, String Ident, String cargo) {
+        this.uid = id;
+        this.nombre= nombreColaborador;
+        this.identificacion = Ident;
+        this.cargo = cargo;
     }
 
     public Colaborador(String id, String nombreColaborador) {
-        this.identificacion = id;
+        this.uid = id;
         this.nombre= nombreColaborador;
     }
 

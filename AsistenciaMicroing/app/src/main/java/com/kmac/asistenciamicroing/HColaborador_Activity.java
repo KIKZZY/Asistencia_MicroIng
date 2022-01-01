@@ -41,7 +41,7 @@ public class HColaborador_Activity extends AppCompatActivity {
     Spinner nombres;
     EditText fechaHab;
     CheckBox confirm;
-    Button btnRegistrar;
+    Button btnHabilitar;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     DatabaseReference databaseReference;
     String Nombresel="";
@@ -58,9 +58,8 @@ public class HColaborador_Activity extends AppCompatActivity {
         nombres = findViewById(R.id.Colaborador_Habilitar);
         obtenerNombres();
         fechaHab = findViewById(R.id.etFechaReIngreso);
-        btnRegistrar =findViewById(R.id.btnHabilitar);
 
-        Button btnHabilitar =findViewById(R.id.btnHabilitar);
+        btnHabilitar =findViewById(R.id.btnHabilitar);
         btnHabilitar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,7 +138,7 @@ public class HColaborador_Activity extends AppCompatActivity {
             DocumentReference InCol = db.collection("Colaboradores").document(UidSel);
 
             InCol
-                    .update("Estado", "1", "fechaRetiro", fechaReIngre)
+                    .update("Estado", "1", "fechaIngreso", fechaReIngre)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -204,6 +203,10 @@ public class HColaborador_Activity extends AppCompatActivity {
             case (R.id.Vales):
                 Intent intentvales= new Intent(this, Vales_Activity.class);
                 startActivity(intentvales);
+                break;
+            case (R.id.ListadoC):
+                Intent intentlistado= new Intent(this, ListadoColaboradores_Activity.class);
+                startActivity(intentlistado);
                 break;
             case (R.id.logout):
                 Intent intentlogout= new Intent(this, LoginActivity.class);

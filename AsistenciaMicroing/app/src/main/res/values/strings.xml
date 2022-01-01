@@ -18,4 +18,7 @@
     <string name="Datos_Errados">Datos Errados, intente nuevamente</string>
     <string name="Habilitar_Titulo">Habilitar Colaborador</string>
     <string name="habilitar_Menu">Habilitar</string>
+    <string name="Listar_Col">Listado de Colaboradores Activos</string>
+    <string name="Search">Buscar</string>
+    <string name="Consultar_Col">Consultar Colaborador</string>
 </resources>

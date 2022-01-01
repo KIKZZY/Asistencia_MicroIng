@@ -46,7 +46,7 @@ public class IColaborador_Activity extends AppCompatActivity {
     Spinner nombres;
     EditText fechaInh;
     CheckBox confirm;
-    Button btnRegistrar;
+    Button btnInhabilitar;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     DatabaseReference databaseReference;
     String Nombresel="";
@@ -63,12 +63,12 @@ public class IColaborador_Activity extends AppCompatActivity {
         nombres = findViewById(R.id.Colaborador_Inha);
         obtenerNombres();
         fechaInh = findViewById(R.id.etFechaRetiro);
-        btnRegistrar =findViewById(R.id.btnRegistrar);
+        btnInhabilitar =findViewById(R.id.btnInhabilitar);
 
-        Button btnInhabilitar =findViewById(R.id.btnInhabilitar);
         btnInhabilitar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 InhabilitarColaborador();
             }
         });
@@ -209,6 +209,10 @@ public class IColaborador_Activity extends AppCompatActivity {
             case (R.id.Vales):
                 Intent intentvales= new Intent(this, Vales_Activity.class);
                 startActivity(intentvales);
+                break;
+            case (R.id.ListadoC):
+                Intent intentlistado= new Intent(this, ListadoColaboradores_Activity.class);
+                startActivity(intentlistado);
                 break;
             case (R.id.logout):
                 Intent intentlogout= new Intent(this, LoginActivity.class);

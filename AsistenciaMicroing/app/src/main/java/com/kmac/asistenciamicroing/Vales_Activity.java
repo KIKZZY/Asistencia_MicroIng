@@ -219,6 +219,10 @@ public class Vales_Activity extends AppCompatActivity {
                 Intent intentvales= new Intent(this, Vales_Activity.class);
                 startActivity(intentvales);
                 break;
+            case (R.id.ListadoC):
+                Intent intentlistado= new Intent(this, ListadoColaboradores_Activity.class);
+                startActivity(intentlistado);
+                break;
             case (R.id.logout):
                 Intent intentlogout= new Intent(this, LoginActivity.class);
                 startActivity(intentlogout);
